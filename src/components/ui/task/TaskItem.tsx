@@ -84,6 +84,7 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
                danger
                type='primary'
                loading={isDeleting}
+               onClick={onDeleteTask}
                icon={<IoTrashOutline />}
             />
          </div>
