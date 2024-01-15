@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-checkbox-inner{
+    width: 24px !important;
+    height:24px !important;
+}
