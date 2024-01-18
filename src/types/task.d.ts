@@ -12,3 +12,5 @@ export interface TaskForm {
    title: string;
    completed: boolean;
 }
+
+export type Status = 'completed' | 'unfinished';

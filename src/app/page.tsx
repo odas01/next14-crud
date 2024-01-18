@@ -1,19 +1,25 @@
-import { AddTask, TaskItem } from '@/components';
+import { Status } from '@/types';
+import { getTasksAction } from '@/actions/task.action';
+import { AddTask, TaskList, TaskCount, Header } from '@/components';
 
-import { getTasks } from '@/actions/task.action';
+interface SearchParams {
+   status: Status;
+}
 
-export default async function Home() {
-   const tasks = await getTasks();
+export default async function Home({
+   searchParams,
+}: {
+   searchParams: SearchParams;
+}) {
+   const tasks = await getTasksAction(searchParams.status);
 
    return (
-      <div className='p-8 w-1/2 mx-auto shadow-lg'>
-         <h2 className='text-center text-3xl font-medium mb-4'>TODO LIST</h2>
+      <div className='xl:py-8 xl:px-16 md:px-12 p-6 mx-auto bg-white rounded-3xl xl:w-[60%] md:w-5/6 w-full'>
+         <Header />
 
+         <TaskCount count={tasks.length} />
          <AddTask />
-         <div className='mt-8'>
-            {tasks &&
-               tasks.map((item, index) => <TaskItem key={index} task={item} />)}
-         </div>
+         <TaskList tasks={tasks} />
       </div>
    );
 }

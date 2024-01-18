@@ -20,10 +20,12 @@ const AddPlan = () => {
    return (
       <form className='flex space-x-2' action={onCreatePlan}>
          <Input
-            placeholder='Enter new plan'
+            placeholder='Enter new task'
             name='title'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            className='flex-1'
+            size='large'
          />
          <SubmitButton />
       </form>
@@ -39,6 +41,7 @@ const SubmitButton = () => {
          htmlType='submit'
          icon={<IoAdd />}
          loading={pending}
+         size='large'
       />
    );
 };

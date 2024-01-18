@@ -3,8 +3,8 @@
 import { ITask } from '@/types';
 import { useState } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
-import { IoTrashOutline } from 'react-icons/io5';
-import { Button, Checkbox, Input } from 'antd';
+import { IoCheckmarkSharp, IoTrashOutline } from 'react-icons/io5';
+import { Button, Input } from 'antd';
 import { deleteTask, updateTask } from '@/actions/task.action';
 
 interface ITaskItemProps {
@@ -42,16 +42,20 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
    };
 
    return (
-      <div className='flex items-center justify-between py-5 border-t'>
-         <div className='flex items-center w-1/2 space-x-4 line-clamp-1'>
-            <Checkbox
-               checked={completed}
-               disabled={isDeleting}
-               onChange={onUpdateStatus}
-            />
+      <div className='flex items-center justify-between xl:px-6 xl:py-4 p-3 bg-[#f2f2f2] rounded-lg shadow'>
+         <div
+            className='flex items-center w-1/2 space-x-4 line-clamp-1 cursor-pointer group'
+            onClick={onUpdateStatus}
+         >
+            {/* <Checkbox checked={completed} disabled={isDeleting} /> */}
+            {completed ? (
+               <IoCheckmarkSharp size={20} color='#00A9FF' />
+            ) : (
+               <span className='w-5 aspect-square border border-gray-400 rounded-full' />
+            )}
 
             <h5
-               className={`line-clamp-2 text-lg leading-6 ${
+               className={`line-clamp-1 xl:text-lg text-sm leading-6 duration-150 flex-1 ${
                   completed ? 'line-through text-gray-300' : 'text-gray-700'
                }`}
             >
@@ -61,7 +65,7 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
 
          <div className='flex space-x-2'>
             {isEdit && (
-               <form className='flex' onSubmit={onEditTask}>
+               <form className='flex-1' onSubmit={onEditTask}>
                   <Input
                      value={editValue}
                      onChange={(e) => setEditValue(e.target.value)}
@@ -74,6 +78,7 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
                danger
                type='primary'
                loading={isEditing}
+               disabled={completed}
                onClick={() => {
                   setIsEdit(!isEdit);
                   setEditValue(title);
