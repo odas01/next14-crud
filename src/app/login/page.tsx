@@ -13,7 +13,7 @@ const Login = () => {
    }
 
    return (
-      <div className='bg-white xl:w-1/3 md:w-1/2 w-full py-6 flex-col items-center space-y-8 flex rounded-3xl'>
+      <div className='bg-white xl:w-1/3 md:w-1/2  py-6 flex-col items-center space-y-8 flex rounded-3xl w-full'>
          <TitleHeader />
          <Button
             className='flex items-center w-56 space-x-2 py-2'
