@@ -59,7 +59,7 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
             )}
 
             <h5
-               className={`line-clamp-1 xl:text-lg text-sm leading-6 duration-150 flex-1 dark:text-white ${
+               className={`line-clamp-1 xl:text-lg text-sm leading-6 flex-1 dark:text-white ${
                   completed ? 'line-through text-gray-300' : 'text-gray-700'
                }`}
             >
