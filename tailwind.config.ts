@@ -7,8 +7,14 @@ const config: Config = {
       './src/app/**/*.{js,ts,jsx,tsx,mdx}',
    ],
    theme: {
-      extend: {},
+      extend: {
+         boxShadow: {
+            dark: '0px 2px 2px rgba(255,255,255,0.3)',
+            light: '0px 2px 2px rgba(0,0,0,0.3)',
+         },
+      },
    },
+   darkMode: 'class',
    plugins: [],
 };
 export default config;

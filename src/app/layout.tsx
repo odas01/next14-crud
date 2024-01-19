@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 
-import Provider from '@/components/provider/Provider';
+import AuthProvider from '@/components/provider/AuthProvider';
 import { StyledComponentsRegistry } from '@/libs/AntdRegistry';
+import ThemeProvider from '@/components/provider/ThemeProvider';
 
 export const metadata: Metadata = {
    title: 'Todo list',
@@ -18,12 +19,17 @@ export default function RootLayout({
    return (
       <StyledComponentsRegistry>
          <html lang='en'>
-            <body suppressHydrationWarning={true} className='bg-[#B4D4FF]'>
-               <Provider>
-                  <div className='xl:pb-12 xl:pt-6 p-4 min-h-screen flex'>
-                     {children}
-                  </div>
-               </Provider>
+            <body
+               suppressHydrationWarning={true}
+               className='bg-[#B4D4FF] dark:bg-[#030637]'
+            >
+               <AuthProvider>
+                  <ThemeProvider>
+                     <div className='xl:pb-12 xl:pt-6 min-h-screen flex'>
+                        {children}
+                     </div>
+                  </ThemeProvider>
+               </AuthProvider>
             </body>
          </html>
       </StyledComponentsRegistry>

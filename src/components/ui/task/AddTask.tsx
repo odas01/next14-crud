@@ -19,13 +19,12 @@ const AddPlan = () => {
 
    return (
       <form className='flex space-x-2' action={onCreatePlan}>
-         <Input
+         <input
             placeholder='Enter new task'
             name='title'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className='flex-1'
-            size='large'
+            className='flex-1 !dark:text-white px-4 md:text-base text-sm rounded-lg border border-gray-400 outline-blue-400 dark:outline-gray-500 dark:bg-[#191919] dark:text-white'
          />
          <SubmitButton />
       </form>

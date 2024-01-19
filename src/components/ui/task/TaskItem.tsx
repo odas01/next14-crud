@@ -42,7 +42,11 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
    };
 
    return (
-      <div className='flex items-center justify-between xl:px-6 xl:py-4 p-3 bg-[#f2f2f2] rounded-lg shadow'>
+      <div
+         className={`flex items-center justify-between xl:px-6 xl:py-6 p-3 bg-[#f2f2f2] dark:bg-[#191919] rounded-lg overflow-hidden shadow-light dark:shadow-dark relative after:mark ${
+            completed ? 'after:visible after:opacity-100' : ''
+         }`}
+      >
          <div
             className='flex items-center w-1/2 space-x-4 line-clamp-1 cursor-pointer group'
             onClick={onUpdateStatus}
@@ -55,7 +59,7 @@ const PlanItem: React.FC<ITaskItemProps> = ({ task }) => {
             )}
 
             <h5
-               className={`line-clamp-1 xl:text-lg text-sm leading-6 duration-150 flex-1 ${
+               className={`line-clamp-1 xl:text-lg text-sm leading-6 duration-150 flex-1 dark:text-white ${
                   completed ? 'line-through text-gray-300' : 'text-gray-700'
                }`}
             >

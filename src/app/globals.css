@@ -6,3 +6,11 @@
     width: 20px !important;
     height:20px !important;
 }
+
+
+
+@layer components{
+    .mark{
+        @apply absolute top-0 right-0 content-[""] w-full h-full bg-[rgba(255,255,255,0.5)] dark:bg-[rgba(0,0,0,0.5)] invisible opacity-0 duration-150
+    }
+}
